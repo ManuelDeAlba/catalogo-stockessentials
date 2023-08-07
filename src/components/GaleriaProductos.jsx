@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Filtro from "./Filtro";
 import Producto from "./Producto";
 function GaleriaProductos({ productos: productosServidor }){
@@ -8,7 +8,7 @@ function GaleriaProductos({ productos: productosServidor }){
     const [productosFiltrados, setProductosFiltrados] = useState(null);
 
     useEffect(() => {
-        fetch("http://localhost:3000/api/productos")
+        fetch(`${process.env.API_BASE_URL}/productos`)
         .then(res => res.json())
         .then(prods => {
             setProductos(prods);
