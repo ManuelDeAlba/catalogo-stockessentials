@@ -8,7 +8,7 @@ function GaleriaProductos({ productos: productosServidor }){
     const [productosFiltrados, setProductosFiltrados] = useState(null);
 
     useEffect(() => {
-        fetch(`${process.env.API_BASE_URL}/productos`)
+        fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/productos`)
         .then(res => res.json())
         .then(prods => {
             setProductos(prods);
