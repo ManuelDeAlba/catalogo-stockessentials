@@ -51,8 +51,8 @@ async function Inicio(){
                 <div className="footer__contenedor contenedor">
                     <h3 className="footer__titulo titulo">Contacto</h3>
                     <div className="footer__links">
-                        <Link className="footer__link" href="/">Whatsapp</Link>
-                        <Link className="footer__link" href="/">Facebook</Link>
+                        <Link className="footer__link" target="_blank" href="https://api.whatsapp.com/send?phone=523340085203">Whatsapp</Link>
+                        <Link className="footer__link" target="_blank" href="https://www.facebook.com/midnaismera.madizonhernandez.1?mibextid=ZbWKwL">Facebook</Link>
                     </div>
                 </div>
             </footer>

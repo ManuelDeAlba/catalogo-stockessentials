@@ -136,7 +136,6 @@ body{
   gap: 20px;
 }
 .filtro{
-  max-width: 300px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -151,6 +150,10 @@ body{
   padding: .5rem;
   outline: none;
   font-size: 1em;
+}
+.filtro__input:is(input[type=checkbox]){
+  width: 20px;
+  height: 20px;
 }
 .filtro__input:not(input[type=checkbox]){
   flex-grow: 1;
@@ -175,8 +178,10 @@ body{
   border-radius: 3px;
   object-fit: cover;
 }
-.producto__nombre{
-  flex-grow: 1;
+.producto__nombre{ flex-grow: 1; }
+.producto__precio{
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .footer{
