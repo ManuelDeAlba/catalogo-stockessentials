@@ -3,6 +3,8 @@ import Link from "next/link";
 import GaleriaProductos from '@/components/GaleriaProductos.jsx';
 import { obtenerProductos } from "@/firebase";
 
+export const dynamic = 'force-dynamic';
+
 async function Inicio(){
     const productos = await obtenerProductos();
 
