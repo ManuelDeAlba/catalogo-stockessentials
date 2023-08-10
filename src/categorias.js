@@ -6,5 +6,6 @@ export default {
     "frazada": "Frazada",
     "sabana": "Sábana",
     "almohada": "Almohada",
+    "cojin": "Cojín",
     "otros": "Otros",
 }

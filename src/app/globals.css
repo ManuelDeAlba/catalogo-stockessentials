@@ -159,6 +159,39 @@ body{
   flex-grow: 1;
 }
 
+/* MODAL */
+.modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background: rgba(0 0 0 / .3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s;
+}
+.modal--activo{
+  opacity: 1;
+  pointer-events: all;
+}
+.modal__img{
+  width: 100vmin;
+  height: 100vmin;
+  object-fit: cover;
+  object-position: center;
+}
+.modal__botones{
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+/* PRODUCTOS */
 .productos{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
