@@ -23,6 +23,8 @@
   --color-footer: var(--LATTE);
   --texto-footer: #fff;
 
+  accent-color: var(--LATTE);
+
   /* 
     Paleta 1:
     --IVORY: #EDE9E3;
@@ -39,9 +41,8 @@
     --COLOR 5: #EFD3CD;
   */
 }
-html{
-  scroll-behavior: smooth;
-}
+html{ scroll-behavior: smooth; }
+html:has(.modal--activo){ overflow: hidden; }
 
 *{
   margin: 0;
@@ -49,7 +50,7 @@ html{
   box-sizing: border-box;
 }
 body{
-  font-family: sans-serif;
+  font-family: var(--font-poppins, "sans-serif");
   min-height: 100vh;
   min-height: 100dvh;
 }
