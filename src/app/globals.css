@@ -249,7 +249,7 @@ body{
   gap: 20px;
 }
 .footer__titulo{
-  font-size: 2em;
+  font-size: 1.5em;
 }
 .footer__links{
   display: flex;
