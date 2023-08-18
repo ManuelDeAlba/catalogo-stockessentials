@@ -60,6 +60,7 @@ body{
   margin: 30px auto;
 }
 .titulo{
+  letter-spacing: 1px;
   text-align: center;
 }
 .boton{
@@ -219,7 +220,8 @@ body{
 }
 
 .footer{
-  height: 100px;
+  min-height: 100px;
+  padding: 0.1px; /* Margin collapse */
   background-color: var(--color-footer);
   color: var(--texto-footer);
 }
@@ -231,13 +233,23 @@ body{
   align-items: center;
   gap: 20px;
 }
+.footer__titulo{
+  font-size: 2em;
+}
 .footer__links{
   display: flex;
   gap: 20px;
 }
 .footer__link{
+  display: flex;
   color: var(--texto-footer);
 }
+.footer__link .icon{
+  width: 30px;
+  height: 30px;
+  transition: transform .3s;
+}
+.footer__link:hover .icon{ transform: translateY(-5px); }
 
 @media (max-width: 768px){
   .header__apartados{
