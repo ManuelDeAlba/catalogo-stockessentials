@@ -17,7 +17,7 @@ async function Inicio(){
                         <h3 className="header__subtitulo">Compra tus blancos de calidad a un mejor precio</h3>
                     </div>
 
-                    <div className="header__apartado">
+                    <div className="header__apartado header__caracteristicas">
                         <section className="header__texto">
                             <h3 className="header__subtitulo">Pedidos</h3>
                             <p className="header__parrafo">Los pedidos que excedan la cantidad disponible se tomarán sobre pedido, el cual tardará máximo 3 semanas.</p>
@@ -40,9 +40,9 @@ async function Inicio(){
                             </div>
                         </section>
                     </div>
-                </div>
 
-                <Link href="#main" className="header__cta boton">Ver productos</Link>
+                    <Link href="#main" className="header__cta boton">Ver productos</Link>
+                </div>
             </header>
 
             <main className="main" id="main">
