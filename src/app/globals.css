@@ -88,6 +88,7 @@ body{
   /* background: var(--color-header); */
   color: var(--texto-header);
   background-image: url("/assets/header-fondo.jpg");
+  background-attachment: fixed;
   background-size: cover;
   background-position: top;
   backdrop-filter: blur(10px);
