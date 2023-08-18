@@ -4,7 +4,7 @@ import ModalProvider from "@/context/ModalProvider";
 
 export const metadata = {
     title: "Catálogo Home Stock Essentials",
-    description: "Blancos disponibles en Stock Essentials",
+    description: "Blancos disponibles en Home Stock Essentials",
     // icons: {
     //     icon: "/assets/icono.png"
     // }
