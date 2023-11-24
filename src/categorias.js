@@ -7,5 +7,6 @@ export default {
     "sabana": "Sábana",
     "almohada": "Almohada",
     "cojin": "Cojín",
+    "cobertor": "Cobertor",
     "otros": "Otros",
 }
