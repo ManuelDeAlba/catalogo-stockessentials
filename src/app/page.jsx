@@ -1,9 +1,17 @@
 import Link from "next/link";
 
 import GaleriaProductos from '@/components/GaleriaProductos.jsx';
-import { obtenerProductos } from "@/firebase";
 
-export const dynamic = 'force-dynamic';
+async function obtenerProductos(){
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/productos`, {
+        next: {
+            revalidate: 3600
+        }
+    });
+    const productos = await res.json();
+
+    return productos;
+}
 
 async function Inicio(){
     const productos = await obtenerProductos();
@@ -43,11 +51,11 @@ async function Inicio(){
                         </section>
                     </div>
 
-                    <Link href="#main" className="header__cta boton">Ver productos</Link>
+                    <Link href="#productos" className="header__cta boton">Ver productos</Link>
                 </div>
             </header>
 
-            <main className="main" id="main">
+            <main className="main" id="productos">
                 <GaleriaProductos productos={productos} />
             </main>
 
