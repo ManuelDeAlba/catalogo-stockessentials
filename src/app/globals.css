@@ -88,7 +88,7 @@ body{
   padding: 50px 0;
   /* background: var(--color-header); */
   color: var(--texto-header);
-  background-image: url("/assets/header-fondo.jpg");
+  background-image: url("/assets/header-fondo.png");
   background-attachment: fixed;
   background-size: cover;
   background-position: top;
