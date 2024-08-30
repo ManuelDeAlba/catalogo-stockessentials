@@ -19,24 +19,28 @@ function Filtro({
     // Cada que cambie el filtro
     // O cada que cambien los elementos de las props, se actualizan los elementos
     useEffect(() => {
-        let filtrados = elementos;
+        const debounceTimeout = setTimeout(() => {
+            let filtrados = elementos;
 
-        if(filtros.categoria) filtrados = filtrados.filter(p => p.categoria == filtros.categoria);
-        if(filtros.min) filtrados = filtrados.filter(p => p.precio_venta >= Number(filtros.min));
-        if(filtros.max) filtrados = filtrados.filter(p => p.precio_venta <= Number(filtros.max));
-        if(filtros.soloDisponibles) filtrados = filtrados.filter(p => p.cantidad);
-        if(filtros.nombre){
-            filtrados = filtrados.filter(p => {
-                let palabras = eliminarAcentos(p.nombre.toLowerCase()).split(/\s+/);
-                let buscado = eliminarAcentos(filtros.nombre.toLowerCase()).split(/\s+/);
+            if(filtros.categoria) filtrados = filtrados.filter(p => p.categoria == filtros.categoria);
+            if(filtros.min) filtrados = filtrados.filter(p => p.precio_venta >= Number(filtros.min));
+            if(filtros.max) filtrados = filtrados.filter(p => p.precio_venta <= Number(filtros.max));
+            if(filtros.soloDisponibles) filtrados = filtrados.filter(p => p.cantidad);
+            if(filtros.nombre){
+                filtrados = filtrados.filter(p => {
+                    let palabras = eliminarAcentos(p.nombre.toLowerCase()).split(/\s+/);
+                    let buscado = eliminarAcentos(filtros.nombre.toLowerCase()).split(/\s+/);
 
-                return buscado.every(palabraB => {
-                    return palabras.some(palabra => palabra.includes(palabraB))
-                })
-            });
-        }
+                    return buscado.every(palabraB => {
+                        return palabras.some(palabra => palabra.includes(palabraB))
+                    })
+                });
+            }
 
-        handleElementosFiltrados(filtrados);
+            handleElementosFiltrados(filtrados);
+        }, 300)
+
+        return () => clearTimeout(debounceTimeout);
     }, [filtros, elementos])
 
     const handleLimpiar = () => {
