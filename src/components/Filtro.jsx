@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { eliminarAcentos } from "@/utils";
 import Categorias from "@/categorias";
 
 function Filtro({
@@ -12,6 +13,7 @@ function Filtro({
         min: "",
         max: "",
         soloDisponibles: false,
+        nombre: ""
     });
 
     // Cada que cambie el filtro
@@ -23,6 +25,16 @@ function Filtro({
         if(filtros.min) filtrados = filtrados.filter(p => p.precio_venta >= Number(filtros.min));
         if(filtros.max) filtrados = filtrados.filter(p => p.precio_venta <= Number(filtros.max));
         if(filtros.soloDisponibles) filtrados = filtrados.filter(p => p.cantidad);
+        if(filtros.nombre){
+            filtrados = filtrados.filter(p => {
+                let palabras = eliminarAcentos(p.nombre.toLowerCase()).split(/\s+/);
+                let buscado = eliminarAcentos(filtros.nombre.toLowerCase()).split(/\s+/);
+
+                return buscado.every(palabraB => {
+                    return palabras.some(palabra => palabra.includes(palabraB))
+                })
+            });
+        }
 
         handleElementosFiltrados(filtrados);
     }, [filtros, elementos])
@@ -33,7 +45,7 @@ function Filtro({
             min: "",
             max: "",
             soloDisponibles: false,
-            // nombre: "",
+            nombre: "",
         });
     }
 
@@ -93,6 +105,18 @@ function Filtro({
                 />
             </div>
 
+            <div className="filtro__nombre filtro">
+                <label htmlFor="nombre">Nombre:</label>
+                <input
+                    className="filtro__input"
+                    id="nombre"
+                    name="nombre"
+                    type="text"
+                    value={filtros.nombre}
+                    onInput={handleInput}
+                />
+            </div>
+
             <div className="filtro__soloDisponibles filtro">
                 <label htmlFor="soloDisponibles">Solo disponibles:</label>
                 <input
@@ -104,7 +128,6 @@ function Filtro({
                     onChange={handleInput}
                 />
             </div>
-            {/* Filtro por nombre */}
 
             <button className="filtro__input boton" onClick={handleLimpiar}>Limpiar filtros</button>
         </div>
